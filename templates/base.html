@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block css %}{% endblock %} <!-- Neu -->
+    {%  block titel %}
+        <title>Template</title>
+    {% endblock %}
+</head>
+<body>
+{% block inhalt %}
+    <section>
+        {% block name %}
+            <h1>Das ist das base.html template zum vererben</h1>
+        {% endblock %}
+
+        {% block zutaten %}
+            <ul>
+                <li>Passion</li>
+            </ul>
+        {% endblock %}
+
+        {% block zubereitung %}
+            <p>Diese Sachen sollen überschrieben werden.</p>
+        {% endblock %}
+
+    <!--    {%  load static %} <img src="{% static "media/good_job" %}" alt="well done; thumbs up!"> -->
+    </section>
+{% endblock %}
+
+</body>
+</html>

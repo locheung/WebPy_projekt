@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+{% load static %}
+
+<!-- {% block css %}
+     <link rel="stylesheet" type="text/css" href="{% static 'Books/books_style.css' %}">
+ {% endblock %} -->
+
+
+{% block titel %}Spiele-Liste{% endblock %}
+
+{% block inhalt %}
+<h2>Spiele-Liste</h2>
+<ul>
+    {% for spiel in alle_spiele %}
+        <a href="{{ spiel.id }}/"><b>{{ spiel.get_full_title }}</b></a><br>
+        <!-- Alternative link:
+        <a href="{% url 'spiel-detail' spiel.id %}">
+        -->
+        {{ spiel.developer_studio }} / {{ spiel.get_genre_display }} / FSK {{ spiel.get_fsk_display }}<br>
+        <br>
+    {% endfor %}
+</ul>
+
+<a href={% url 'spiel-create' %}>Neues Spiel hinzufügen</a><br>
+{% endblock %}

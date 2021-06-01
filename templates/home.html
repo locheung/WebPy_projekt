@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- {% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home_style.css' %}">
+{% endblock %} -->
+
+{% block inhalt %}
+
+
+    {% if user.is_authenticated %}
+        {%  block eingeloggt_inhalt %}
+            <p>Hi {{ user.username }}!</p>
+            <p><a href="{% url 'spiel-list' %}">Zeige mir die Computerspiele</a></p>
+            <a href="{% url 'logout' %}">logout</a>
+        {% endblock %}
+    {% else %}
+        {% block nicht_eingeloggt_inhalt %}
+            <p>You are not logged in</p>
+            <a href="{% url 'login' %}">login</a>
+            <a href="{% url 'signup' %}">signup</a>
+        {% endblock %}
+    {% endif %}
+{% endblock %}
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+-->
